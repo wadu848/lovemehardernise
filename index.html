@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+<meta charset="UTF-8">
+<title>Nise</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: url("background.jpg") center / cover no-repeat fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Allura', cursive;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 0;
+}
+
+.poem {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  padding: 60px;
+  background: rgba(255,248,235,0.93);
+  border-radius: 20px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.45);
+  animation: fadeIn 2.5s ease forwards;
+  opacity: 0;
+  font-size: 1.7rem;
+  line-height: 1.9;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.start {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.start button {
+  font-family: 'Allura', cursive;
+  font-size: 2rem;
+  padding: 18px 36px;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+  background: #fff3e0;
+}
+
+.hidden { display: none; }
+</style>
+</head>
+
+<body>
+
+<audio id="bgMusic" src="song.mp3" controls></audio>
+
+<div class="start" id="startScreen">
+  <button onclick="startExperience()">Tap to begin ♡</button>
+</div>
+
+<div class="poem">
+<h1 style="text-align:center;font-size:3rem;">Nise</h1>
+
+<p>
+My intentions are simple. I want to treat you the way you’ve always deserved to make you feel truly seen, heard, and valued every single day. I want to bring you real happiness, honesty, and a sense of peace, and to be the person who reminds you of your worth, especially when life feels heavy or uncertain.
+
+I won’t pretend to be perfect, because I’m not. But I promise to always give my best to be honest, open, and patient with you, to grow with you, and to never walk away when things get hard. I choose you, not just in the easy moments, but in the difficult ones too.
+
+No matter what happens, I want you to know how deeply you matter, how appreciated you are, and how loved you truly are without doubt, without question, and without fear. I’m not perfect, and I never will be, but I promise to always give my best. I’ll be honest with you, open with you, and consistent in showing up. I won’t give up on us, and I’ll never make you question how deeply you matter or how much you are cared for. My goal is not just to love you, but to love you in a way that feels safe, genuine, and real.</p>
+
+<div style="text-align:right;margin-top:40px;">Nag mamahal<br>~Wadu</div>
+</div>
+
+<script>
+function startExperience() {
+  const audio = document.getElementById("bgMusic");
+  audio.play().catch(e => alert("Chrome blocked audio. Use localhost server."));
+  document.getElementById("startScreen").classList.add("hidden");
+}
+</script>
+
+</body>
+</html>
